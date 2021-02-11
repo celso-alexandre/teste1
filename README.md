@@ -2,7 +2,7 @@
 - fazer um endpoint GET que retorna os conteúdos de um arquivo txt
 - fazer um endpoint POST que recebe uma string e retorna o hash dela (SHA256)
 - fazer autenticação por JWT
-- tela de login em react com campo de usuario e senha
+- tela de login em *React.js* com campo de usuário e senha
 
 # 2. Dada a seguinte interface:
 
