@@ -4,6 +4,7 @@ import { createHash } from 'crypto';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import Joi from 'joi';
+import cors from 'cors';
 
 import isAuthenticatedMiddleware from './isAuthenticatedMiddleware';
 
@@ -11,6 +12,7 @@ require('dotenv').config();
 
 const server = express();
 
+server.use(cors());
 server.use(express.json());
 
 server.use('/file', express.static(path.resolve('.', 'tmp', 'teste.txt')));

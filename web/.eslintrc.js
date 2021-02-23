@@ -40,5 +40,6 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'no-alert': 'off',
   },
 };

@@ -14,7 +14,9 @@
 	"password": "123"
 }
 ```
-- tela de login em *React.js* com campo de usuário e senha
+- tela de login em *React.js* com campo de usuário e senha  
+**R.:** Feito
+
 
 # 2. Dada a seguinte interface:
 
