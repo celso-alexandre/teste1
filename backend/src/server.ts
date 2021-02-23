@@ -15,6 +15,21 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
+server.post('/numbers', (request, response) => {
+  const { number1, number2, number3 } = request.body;
+
+  const numberBin = {
+    original: { number1, number2, number3 },
+    bin: {
+      number1: number1.toString(2),
+      number2: number2.toString(2),
+      number3: number3.toString(2),
+    },
+  };
+
+  return response.json(numberBin);
+});
+
 server.use('/file', express.static(path.resolve('.', 'tmp', 'teste.txt')));
 server.post('/hash', (request, response) => {
   try {
@@ -26,6 +41,7 @@ server.post('/hash', (request, response) => {
     return response.status(500).json({ message: 'Internal error', debug: err.message });
   }
 });
+
 server.post('/auth/signin', async (request, response) => {
   const { username, password } = request.body;
   const credentials = { username, password };
@@ -86,4 +102,4 @@ server.get('/protected', (request, response) => {
   });
 });
 
-server.listen(3333, () => console.log('Iniciado na porta 3333'));
+server.listen(3333, () => console.log('Listening on port 3333'));
