@@ -18,16 +18,25 @@ server.use(express.json());
 server.post('/numbers', (request, response) => {
   const { number1, number2, number3 } = request.body;
 
-  const numberBin = {
-    original: { number1, number2, number3 },
-    bin: {
-      number1: number1.toString(2),
-      number2: number2.toString(2),
-      number3: number3.toString(2),
-    },
-  };
+  //   const numberBin = {
+  //     original: { number1, number2, number3 },
+  //     bin: {
+  //       number1: number1.toString(2),
+  //       number2: number2.toString(2),
+  //       number3: number3.toString(2),
+  //     },
+  //   };
 
-  return response.json(numberBin);
+  const buf1 = Buffer.alloc(32 / 8);
+  const buf2 = Buffer.alloc(16 / 8);
+  const buf3 = Buffer.alloc(8 / 8);
+  buf1.fill(number1);
+  buf2.fill(number2);
+  buf3.fill(number3);
+
+  const retorno = Buffer.concat([buf1, buf2, buf3]);
+  console.log({ retorno, bytes: retorno.length });
+  return response.send('Verifique o retorno em seu terminal');
 });
 
 server.use('/file', express.static(path.resolve('.', 'tmp', 'teste.txt')));
