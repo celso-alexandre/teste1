@@ -1,5 +1,6 @@
 # 1. Utilizando Node.js e *typescript*:
-- fazer um endpoint GET que retorna os conteúdos de um arquivo txt
+- fazer um endpoint GET que retorna os conteúdos de um arquivo txt  
+**R.:** http://localhost:3333/public/teste.txt
 - fazer um endpoint POST que recebe uma string e retorna o hash dela (SHA256)
 - fazer autenticação por JWT
 - tela de login em *React.js* com campo de usuário e senha
